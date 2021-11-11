@@ -1,0 +1,83 @@
+<p-table #dtable responsiveLayout="stack" [columns]="selectedColumns" [value]="tablaData.datos.lista"
+    styleClass="p-datatable-striped tabla-gen" [paginator]="true" [rowsPerPageOptions]="[5,10,25,50]"
+    [totalRecords]="tablaData.totalDatos" [rows]="tablaData.cantidadDatos" [lazy]="true"
+    [loading]="tablaData.loadingTable" (onLazyLoad)="emitLoadDataTable($event)">
+    <ng-template pTemplate="caption">
+        <div class="table-header">
+            <button pButton label="Limpiar" class="p-button-outlined button-filter" icon="pi pi-filter-slash"
+                (click)="clear(dtable)"></button>
+            <span class="titulo-header">{{tablaData.titulo}}</span>
+            <span class="p-input-icon-left ">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" class="input-search"
+                    (input)="dtable.filterGlobal($event.target, 'contains')" placeholder="Buscar palabra clave" />
+            </span>
+        </div>
+        <div class="table-header" *ngIf="tablaData.filtroColumnas==true">
+            <!--selectedItemsLabel="{0} columns selected"-->
+            <p-multiSelect [options]="tablaData.datos.columnas" optionLabel="titulo" [(ngModel)]="selectedColumns"
+                placeholder="Elija las columnas a visualizar" class="table-gen-select"></p-multiSelect>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th alignFrozen="right" style="width:4em">Acción</th>
+            <th *ngFor="let col of columns" class="text-center">
+                <!--lista normal-->
+                <span style="margin: 0 auto;" *ngIf="col.filtro==null"> {{col.titulo}}</span>
+                <!--end lista normal-->
+
+                <!--lista filtro combo-->
+                <div class="p-d-flex p-jc-between p-ai-center" *ngIf="col.filtro!=null && col.filtro.tipo=='combo'">
+                    {{col.titulo}}
+                    <p-columnFilter field="{{col.campo}}" matchMode="in" display="menu" class="p-ml-auto"
+                        [showMatchModes]="false" [showOperator]="false" [showAddButton]="false" [showApplyButton]="true"
+                        [showClearButton]="true" pTooltip="Filtrar {{col.titulo}}" tooltipPosition="top">
+                        <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                            <p-dropdown optionLabel="valor" [options]="col.filtro.lista" [ngModel]="value"
+                                (onChange)="filter($event.value)" placeholder="Seleccione un valor">
+                                <ng-template let-option pTemplate="item">
+                                    {{option.valor}}
+                                </ng-template>
+                            </p-dropdown>
+                        </ng-template>
+                    </p-columnFilter>
+                </div>
+                <!--end lista filtro combo-->
+            </th>
+        </tr>
+    </ng-template>
+    <!--tabla body-->
+    <ng-template pTemplate="body" let-datos let-columns="columns">
+        <tr>
+            <td style="padding: 0px;" *ngIf="!tablaData.loadingTable">
+                <app-menu-button [jsonDataMenu]="datos.menu" [componente]="componente" [data]="datos.id"
+                    (emiterData)="emiterDataMenu($event)"></app-menu-button>
+            </td>
+            <td *ngIf="tablaData.loadingTable">
+                <p-skeleton></p-skeleton>
+            </td>
+            <td *ngFor="let col of columns">
+                <span *ngIf="!tablaData.loadingTable">
+                    <span *ngIf="stringValid(datos[col.campo])">{{datos[col.campo]}}</span>
+
+                    <p class="tabla-gen-p {{col.p_aling}}" *ngIf="datos[col.campo]?.p_txt!=null">
+                        {{datos[col.campo].p_txt}}</p>
+                    <p class="tabla-gen-p {{col.p_aling}} font-medium" *ngIf="datos[col.campo]?.p_strong!=null">
+                        {{datos[col.campo].p_strong}}</p>
+                    <p class="tabla-gen-p {{col.p_aling}} text-xs" *ngIf="datos[col.campo]?.p_small!=null">
+                        {{datos[col.campo].p_small}}</p>
+                    <p class="tabla-gen-p {{col.p_aling}} p-txt-option" *ngIf="datos[col.campo]?.p_opccion!=null"><span
+                            class="text-sm font-medium bg-{{datos[col.campo].p_opccion.color}}-200 text-{{datos[col.campo].p_opccion.color}}-800">{{datos[col.campo].p_opccion.txt}}</span>
+                    </p>
+                    <p class="tabla-gen-p {{col.p_aling}}" *ngIf="datos[col.campo]?.p_enlace!=null">
+                        <span class="txt-enlace text-primary font-semibold" (click)="enlace(datos[col.campo].p_enlace.enlace)">{{datos[col.campo].p_enlace.txt}}</span></p>
+                </span>
+                <span *ngIf="tablaData.loadingTable">
+                    <p-skeleton></p-skeleton>
+                </span>
+            </td>
+        </tr>
+    </ng-template>
+    <!--end tabla body-->
+</p-table>

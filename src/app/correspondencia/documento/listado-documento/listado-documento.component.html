@@ -1,0 +1,11 @@
+<app-titulo-gen [datos]="dataTitulo"></app-titulo-gen>
+<div class="card">
+    <div class="flex flex-row-reverse">
+        <div class="col-12  lg:col-3 p-lg-offset-9">
+            <p-button label="Adicionar" icon="pi pi-plus" class="btn-100" (click)="adicionar();"></p-button>
+        </div>
+    </div>
+</div>
+<p-card class="tabla-card">
+    <app-table-gen #tableLista [componente]="componente" [tablaData]="tablaData" (emiterData)="emiterDataTabla($event)"></app-table-gen>
+</p-card>

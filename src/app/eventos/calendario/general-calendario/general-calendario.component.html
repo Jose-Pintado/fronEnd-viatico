@@ -1,0 +1,45 @@
+<h2>Sistema de eventos</h2>
+
+<p-button (click)="showModalDialog()" icon="pi pi-external-link" label="Agendar"></p-button>
+<p-dialog header="Llena los datos" [(visible)]="displayModal"  [modal]="true" [style]="{width: '50vw',height: '60vw'}"
+    [baseZIndex]="100000" [draggable]="false" [resizable]="false" [maximizable]="true">
+
+
+    <br>
+    <span class="p-float-label">
+        <input id="float-input" type="text" pInputText>
+        <label for="float-input">Nombre</label>
+    </span><br>
+    <span class="p-float-label">
+        <p-calendar inputId="time" appendTo="body" [touchUI]="true" [readonlyInput]="true"></p-calendar>
+        <label for="float-input">Fecha</label>
+        
+    </span> <br>
+    <span class="p-float-label">
+        <p-calendar inputId="time" appendTo="body" [touchUI]="true" [readonlyInput]="true"></p-calendar>
+        <label for="float-input">Fecha</label>
+    
+    </span>
+    <br>
+    <span class="p-float-label">
+        <p-calendar appendTo="body"  [timeOnly]="true" inputId="timeonly"></p-calendar>
+        <label for="float-input">Desde</label>
+
+    </span>
+    <br>
+    <span class="p-float-label">
+        <p-calendar appendTo="body" [timeOnly]="true" inputId="timeonly"></p-calendar>
+        <label for="float-input">Hasta</label>
+    
+    </span>
+
+
+
+    <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="displayModal=false" label="Yes" class="p-button-text"></p-button>
+        <p-button icon="pi pi-times" (click)="displayModal=false" label="No"></p-button>
+    </ng-template>
+</p-dialog>
+
+
+<full-calendar [options]="calendarOptions"></full-calendar>

@@ -1,0 +1,5 @@
+<span class="p-ayuda" (click)="display = true"><i class="pi pi-question"></i></span>
+<p-sidebar [(visible)]="display" position="{{posicion}}"  styleClass="p-sidebar-{{tipo}}">
+    <h3>{{elem.titulo}}</h3>
+    <p [innerHTML]="elem.contenido" ></p>
+</p-sidebar>

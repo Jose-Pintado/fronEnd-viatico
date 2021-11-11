@@ -1,0 +1,18 @@
+<p-sidebar (onHide)="sidenavClosed()" [(visible)]="ver" [fullScreen]="true" [closeOnEscape]="true" class="doc-gen-slider"
+    *ngIf="pdfData | async">
+    <ngx-extended-pdf-viewer 
+    theme="dark"
+    backgroundColor="#5c5c5c"
+    [src]="data"
+    useBrowserLocale="true" 
+    height="90vh" 
+    [textLayer]="true"
+    [showUnverifiedSignatures]="true"
+    [showPresentationModeButton]="true"
+    [showOpenFileButton]="false"
+    [zoom]="'page-fit'"
+    [showBorders]="false"
+    >
+    </ngx-extended-pdf-viewer>
+
+</p-sidebar>

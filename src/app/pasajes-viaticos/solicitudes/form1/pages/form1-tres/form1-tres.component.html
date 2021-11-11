@@ -1,0 +1,65 @@
+<div class="container border">
+    <div class="contenido">
+        <div class="col-10">
+            <div style="text-align:right "><strong>3/4</strong> </div>
+            <h3 style="text-align:left ">Formulario de Autorización de viaje - Form 1</h3>
+            <h5 >Gastos financiados por: </h5> 
+            <div class="fluid grid">
+                <div class="col">
+                    <p-radioButton name="groupname" value="val1" label="VPEP - PALP" ></p-radioButton>
+                </div>
+                <div class="col">
+                    <p-radioButton name="groupname" value="Chicago"  inputId="city1" label="OTRO"></p-radioButton>
+                </div>
+            </div>
+            
+            <!-- otros gastos financiados -->
+            <div class="p-fluid grid">
+                <h5 >Otros gastos financiados: </h5> 
+               
+                    <div class="caja">
+                        <div class="field grid">
+                        <div class="field col">
+                            <div class="field-checkbox"><br>
+                                <p-checkbox name="group1" value="New York"  inputId="ny"></p-checkbox>
+                                <label for="ny"> PASAJES </label> 
+                            </div>
+                            <div class="field-checkbox"><br>
+                                <p-checkbox name="group1" value="San Francisco"  inputId="sf"></p-checkbox>
+                                <label for="sf"> VIÁTICOS</label>
+                            </div>
+                            <div class="field-checkbox"><br>
+                                <p-checkbox name="group1" value="Los Angeles" inputId="la"></p-checkbox>
+                                <label for="la"> HOSPEDAJE</label>
+                            </div>
+                            <div class="field-checkbox">
+                                <br>
+                                <p-checkbox name="group1" value="Chicago"inputId="ch"></p-checkbox>
+                                <label for="ch"> ALIMENTACIÓN</label>
+                            </div>
+                        </div>
+                        <div class="field col">
+                            <label for="">OBSERVACIONES</label> 
+                            <textarea [rows]="5" [cols]="80" pInputTextarea autoResize="autoResize"></textarea>
+
+                        </div>
+                      </div>
+                      <div class="p-text-right"><label class="notificacion " >En caso de otro patrocinante adjuntar docucmentación que sustente el mismo.</label></div>
+                      
+
+                    </div>
+                
+            </div>
+            
+                <!-- fin de otros gastos financiados -->
+                <button pButton type="button" label="Siguiente" icon="pi pi-chevron-right" (click)="verForm1_cuatro()"></button>
+                <span class="space"></span>
+            
+                <button pButton type="button" label="Cancelar" icon="pi pi-times" class="p-button-danger"></button>
+            
+        </div>  
+        
+     
+    </div>
+   
+</div>

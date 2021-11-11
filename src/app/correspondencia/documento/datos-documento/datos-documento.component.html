@@ -1,0 +1,87 @@
+<h2 style="margin-top: 0px;">Cite : {{cite}} | Hoja de ruta: {{hr}}</h2>
+<div class="p-fluid grid ver-gen">
+    <div class="col-12">
+        <label>Destinatario nombre</label>
+        <p-skeleton height="2rem" *ngIf="load ;  else elseDoc1"></p-skeleton>
+        <ng-template #elseDoc1>
+            <span>{{datos.destinatario.nombre}}</span>
+        </ng-template>
+    </div>
+    <div class="col-12">
+        <label>Destinatario cargo</label>
+        <p-skeleton height="2rem" *ngIf="load ;  else elseDoc2"></p-skeleton>
+        <ng-template #elseDoc2>
+            <span>{{datos.destinatario.cargo}}</span>
+        </ng-template>
+    </div>
+    <div class="col-12">
+        <label>Remintente nombre</label>
+        <p-skeleton height="2rem" *ngIf="load ;  else elseDoc3"></p-skeleton>
+        <ng-template #elseDoc3>
+            <span>{{datos.remintente.nombre}}</span>
+        </ng-template>
+    </div>
+    <div class="col-12">
+        <label>Remintente cargo</label>
+        <p-skeleton height="2rem" *ngIf="load ;  else elseDoc4"></p-skeleton>
+        <ng-template #elseDoc4>
+            <span>{{datos.remintente.cargo}}</span>
+        </ng-template>
+    </div>
+    <div class="col-12">
+        <label>Referencia</label>
+        <p-skeleton height="2rem" *ngIf="load ;  else elseDoc5"></p-skeleton>
+        <ng-template #elseDoc5>
+            <span>{{datos.referencia}}</span>
+        </ng-template>
+    </div>
+    <div class="col-12">
+        <label>Adjunto</label>
+        <p-skeleton height="2rem" *ngIf="load ;  else elseDoc6"></p-skeleton>
+        <ng-template #elseDoc6>
+            <span>{{datos.adjunto}}</span>
+        </ng-template>
+    </div>
+    <div class="col-12">
+        <label>Nro. hojas</label>
+        <p-skeleton height="2rem" *ngIf="load ;  else elseDoc7"></p-skeleton>
+        <ng-template #elseDoc7>
+            <span>{{datos.nro_hojas}}</span>
+        </ng-template>
+    </div>
+    <div class="col-12">
+        <label>Con copia a</label>
+        <p-skeleton height="2rem" *ngIf="load ;  else elseDoc8"></p-skeleton>
+        <ng-template #elseDoc8>
+            <span>{{datos.con_copia_a}}</span>
+        </ng-template>
+    </div>
+    <div class="col-12">
+        <label>Unidad organizacional</label>
+        <p-skeleton height="2rem" *ngIf="load ;  else elseDoc9"></p-skeleton>
+        <ng-template #elseDoc9>
+            <span>{{datos.unidad_organizacional.valor}}</span>
+        </ng-template>
+    </div>
+    <div class="col-12">
+        <label>Tipo</label>
+        <p-skeleton height="2rem" *ngIf="load ;  else elseDoc10"></p-skeleton>
+        <ng-template #elseDoc10>
+            <span>{{datos.tipo.valor}}</span>
+        </ng-template>
+    </div>
+    <div class="col-12">
+        <label>Estado</label>
+        <p-skeleton height="2rem" *ngIf="load ;  else elseDoc11"></p-skeleton>
+        <ng-template #elseDoc11>
+            <span>{{datos.estado.valor}}</span>
+        </ng-template>
+    </div>
+    <div class="col-12">
+        <label>Fecha</label>
+        <p-skeleton height="2rem" *ngIf="load ;  else elseDoc12"></p-skeleton>
+        <ng-template #elseDoc12>
+            <span>{{datos.f_crea}}</span>
+        </ng-template>
+    </div>
+</div>

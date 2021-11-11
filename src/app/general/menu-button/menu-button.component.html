@@ -1,0 +1,18 @@
+<div class="menu-table-gen" >
+    <p-speedDial 
+    [model]="items" 
+    direction="right" 
+    type="right" 
+    showIcon="pi pi-bars" 
+    hideIcon="pi pi-times" 
+    [radius]="90" 
+    [transitionDelay]="80" 
+     *ngIf="habilitado">
+    </p-speedDial>
+    <p-speedDial 
+    showIcon="pi pi-bars" 
+    direction="right"  
+    disabled="false" 
+    buttonClassName="p-button-outlined"
+    *ngIf="!habilitado" ></p-speedDial>
+</div>

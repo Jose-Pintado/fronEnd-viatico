@@ -1,0 +1,72 @@
+<form [formGroup]="form">
+    <div class="p-fluid grid  form-gen" formGroupName="destinatario">
+        <div class="field col-12">
+            <label for="inputtext">Destinatario nombre</label>
+            <p-autoComplete formControlName="nombre" [suggestions]="autoComplete.destinatarios" (completeMethod)="usuarioGet($event)" field="nombre_completo" (onSelect)="destinatarioSelect($event)">
+                <ng-template let-row pTemplate="item">
+                        {{row.nombre_completo}}<br><b>{{row.cargo_usuario}}</b>
+                </ng-template>
+            </p-autoComplete>
+            <app-mesaje-form-error [control]="form.get('destinatario.nombre')" [valid]="formValid">
+            </app-mesaje-form-error>
+        </div>
+        <div class="field col-12">
+            <label for="inputtext">Destinatario cargo</label>
+            <input formControlName="cargo" type="text" id="inputtext" pInputText >
+            <app-mesaje-form-error [control]="form.get('destinatario.cargo')" [valid]="formValid">
+            </app-mesaje-form-error>
+        </div>
+    </div>
+    <div class="p-fluid grid  form-gen" formGroupName="remitente">
+        <div class="field col-12">
+            <label for="inputtext">Remintente nombre</label>
+            <p-autoComplete formControlName="nombre" [suggestions]="autoComplete.remitentes" (completeMethod)="remitenteGet($event)" field="nombre_completo" (onSelect)="remitenteSelect($event)"></p-autoComplete>
+            <app-mesaje-form-error [control]="form.get('remitente.nombre')" [valid]="formValid">
+            </app-mesaje-form-error>
+        </div>
+        <div class="field col-12">
+            <label for="inputtext">Remintente cargo</label>
+            <input type="text" id="inputtext" pInputText formControlName="cargo">
+            <app-mesaje-form-error [control]="form.get('remitente.cargo')" [valid]="formValid">
+            </app-mesaje-form-error>
+        </div>
+    </div>
+    <div class="p-fluid grid  form-gen">
+        <div class="field col-12">
+            <label for="inputtext">Referencia</label>
+            <input formControlName="referencia"  type="text" id="inputtext" pInputText >
+            <app-mesaje-form-error [control]="form.get('referencia')" [valid]="formValid">
+            </app-mesaje-form-error>
+        </div>
+        <div class="field col-12">
+            <label for="inputtext">Adjunto</label>
+            <input formControlName="adjunto" type="text" id="inputtext" pInputText >
+            <app-mesaje-form-error [control]="form.get('adjunto')" [valid]="formValid">
+            </app-mesaje-form-error>
+        </div>
+        <div class="field col-12">
+            <label for="inputtext">Nro. hojas</label>
+            <input formControlName="nro_hojas" type="text" id="inputtext" pInputText >
+            <app-mesaje-form-error [control]="form.get('nro_hojas')" [valid]="formValid">
+            </app-mesaje-form-error>
+        </div>
+        <div class="field col-12">
+            <label for="inputtext">Con copia a</label>
+            <input formControlName="con_copia_a" type="text" id="inputtext" pInputText >
+            <app-mesaje-form-error [control]="form.get('con_copia_a')" [valid]="formValid">
+            </app-mesaje-form-error>
+        </div>
+        <div class="field col-12">
+            <label for="inputtext">Unidad organizacional</label>
+            <input formControlName="codigo_unidad_organizacional" type="text" id="inputtext" pInputText >
+            <app-mesaje-form-error [control]="form.get('codigo_unidad_organizacional')" [valid]="formValid">
+            </app-mesaje-form-error>
+        </div>
+        <div class="field col-12">
+            <label for="inputtext">Tipo</label>
+            <p-dropdown [options]="autoComplete.tipo" formControlName="tipo" placeholder="Selecione" optionLabel="valor" [showClear]="true"></p-dropdown>
+            <app-mesaje-form-error [control]="form.get('tipo')" [valid]="formValid">
+            </app-mesaje-form-error>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,36 @@
+<div class="row">
+    <p align="right">
+    <button pButton type="button" label="Reglamento de pasajes y viáticos " icon="pi pi-download" iconPos="left" class="p-button-text p-button-text"></button>
+    </p>
+    <div class="col">
+        <!-- Datos de usuario -->
+        <p-card header="Datos de solicitante">
+            <div class="grid">
+                <div class="col-6">
+                    Nombre y apellidos: <br>
+                    Carnet de Identidad: <br>
+                    Telefono/Celular:
+                </div>
+                <div class="col-6">
+                    Dirección: <br>
+                    Cargo:
+                </div>
+            </div>
+            
+           
+        </p-card>
+        <br>
+        <button pButton type="button"  routerLink="form1"  label="Registrar nuevo FORM1" icon="pi pi-file-o" iconPos="left" class="p-button-text p-button-text"></button>
+      
+        <br>
+
+        <!-- tabla de formularios existentes -->
+        <p-card class="tabla-card">
+            <app-table-gen #tableLista [componente]="componente" [tablaData]="tablaData" (emiterData)="emiterDataTabla($event)" ></app-table-gen>
+        </p-card>
+    </div>
+
+
+</div>
+
+

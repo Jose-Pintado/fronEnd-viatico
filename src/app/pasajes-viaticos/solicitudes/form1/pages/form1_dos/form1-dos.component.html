@@ -1,0 +1,89 @@
+<div class="container border">
+    <div class="contenido">
+        <div class="col-12">
+            <div style="text-align:right "><strong>2/4</strong> </div>
+            <h3 style="text-align:left ">Formulario de Autorización de viaje - Form 1</h3>
+            <h2 style="text-align:center ">Itinerario de viaje</h2>
+            <div class="formgrid grid">
+                <div class="field col">
+                    <h5 style="color: rgb(14, 114, 36);">SALIDA</h5>
+                    <div class="caja" style="border-color: rgb(14, 114, 36);">
+                       <div class="p-fluid grid">
+                        <div class="col-6">
+                            <label for="icon">Fecha:</label>
+                            <p-calendar   inputId="icon" name="fechaEntrada"></p-calendar>
+                        </div>
+                        <div class="col-6">
+                            <label for="icon">Hora:</label>
+                            <input type="text" pInputText  placeholder="__:__"> 
+                        </div>
+                    </div>
+       
+        
+                    </div>
+                </div>
+                <div class="field col">
+                    <h5 style="color: rgb(218, 7, 7);">RETORNO</h5>
+                    <div class="caja" style="border-color: rgb(218, 7, 7);">
+                        <div class="p-fluid grid">
+                            <div class="col-6">
+                                <label for="icon">Fecha:</label>
+                                <p-calendar   inputId="icon" name="fechaSalida"></p-calendar>
+                            </div>
+                            <div class="col-6">
+                                <label for="icon">Hora:</label>
+                                <input type="text" pInputText  placeholder="__:__"> 
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+           <h5>TRAMOS</h5>
+           <div class="caja" style="padding-top: 2px;">
+            <h5>TRAMO 1</h5>
+            <div class="p-fluid grid">
+                
+                <div class="col-3">
+                    <label for="icon">Fecha:</label>
+                            <p-calendar  inputId="icon" name="fechaEntrada"></p-calendar>
+                </div>
+                <div class="col-3">
+                    <label for="icon">Hora:</label>
+                            <input type="text" pInputText  placeholder="__:__"> 
+                </div>
+            </div>
+            <h5>SALIDA - LLEGADA DEL TRAMO</h5>
+            <div class="formgrid grid">
+                <div class="field col">
+                   <input type="text" pInputText  > 
+                </div>
+                <div class="field col">
+                  <p-dropdown  optionLabel="name" placeholder="País"> </p-dropdown>
+                    <!-- <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown> -->
+                </div>
+                <div class="field col">
+                    <p-dropdown  optionLabel="name" placeholder="Departamento"> </p-dropdown>
+                </div>
+                <div class="field col">
+                    <p-dropdown  optionLabel="name" placeholder="Municipio"> </p-dropdown>
+                </div>
+                <div class="field col">
+                    <p-dropdown  optionLabel="name" placeholder="Población"> </p-dropdown>
+                </div>
+                <div class="field col">
+                    <p-dropdown  optionLabel="name" placeholder="Tipo de transporte"> </p-dropdown>
+                </div>
+            </div>
+           </div> 
+           <br>
+                <button pButton type="button" label="Siguiente" icon="pi pi-chevron-right" (click)="verForm1_tres()"></button>
+                <span class="space"></span>
+
+                <button pButton type="button" label="Cancelar" icon="pi pi-times" class="p-button-danger"></button>
+
+        </div>
+    </div>
+</div>
+
+

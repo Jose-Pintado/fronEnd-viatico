@@ -1,0 +1,35 @@
+<app-titulo-gen [datos]="dataTitulo"></app-titulo-gen>
+<p-card>
+    <app-datos-documento #documentos (emiterData)="emiterData($event)"></app-datos-documento>
+    <br>
+    <form [formGroup]="form" *ngIf="estado=='GEN'">
+        <div class="p-fluid grid  form-gen">
+            <div class="field col-12 ">
+                <label for="inputtext">Comentario</label>
+                <textarea pInputTextarea formControlName="comentario" [rows]="2"></textarea>
+                <app-mesaje-form-error [control]="form.controls['comentario']" [valid]="formValid">
+                </app-mesaje-form-error>
+            </div>
+        </div>
+        <div class="p-fluid grid">
+            <div class="col-12  lg:col-8" style="padding:0px;"></div>
+            <div class="col-12  lg:col-2">
+                <button pButton pRipple type="button" label="Volver" class="p-button-secondary p-button-text"
+                    icon="pi pi-angle-left" (click)="volver()"></button>
+            </div>
+            <div class="col-12  lg:col-2">
+                <p-button label="Eliminar" icon="pi pi-save" class="btn-100" (click)="confirmarGuardar()"></p-button>
+            </div>
+        </div>
+    </form>
+    <div class="p-fluid grid" *ngIf="estado=='BOR'">
+        <div class="col-12  lg:col-8" style="padding:0px;"></div>
+        <div class="col-12  lg:col-2">
+            <button pButton pRipple type="button" label="Volver" class="p-button-secondary p-button-text"
+                icon="pi pi-angle-left" (click)="volver()"></button>
+        </div>
+        <div class="col-12  lg:col-2">
+            <p-button label="Eliminar" icon="pi pi-save" class="btn-100" (click)="confirmarGuardarBOR()"></p-button>
+        </div>
+    </div>
+</p-card>
